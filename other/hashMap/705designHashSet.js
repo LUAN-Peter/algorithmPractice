@@ -14,7 +14,7 @@
  */
 var MyHashSet = function() {
     this.MAP_SIZE = 1000;
-    this.map = new Array(1000).fill(0).map(() => []);
+    this.map = new Array(this.MAP_SIZE).fill(0).map(() => []);
 };
 
 /** 
