@@ -15,12 +15,14 @@ var find132pattern = function(nums) {
     let bList = [nums[len - 1]];
     let c = Number.MIN_SAFE_INTEGER;
     for (let i = len - 2; i >= 0; i--) {
+        // a b c
+        // Because c < b, it just need the a < c which can meet 1-3-2 condition.
         if (nums[i] < c) {
             return true;
         }
         while (bList.length != 0 && nums[i] > bList[0]) {
             let temp = bList.shift();
-            c = temp;
+            c = temp;   // As the stack is in ascending order. So it needn't Math.max(c, temp)
         }
         if (nums[i] > c) {
             bList.unshift(nums[i]);
